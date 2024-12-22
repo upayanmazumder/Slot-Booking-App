@@ -5,36 +5,163 @@
     justify-content: center;
     margin-top: 20px;
     font-size: 1em;
+    gap: 20px;
+    color: var(--text-color);
 }
 
-.slotSelector h4 {
+.slotSelector h4,
+.slotSelector h5 {
     margin: 15px 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.slotSelector .slots h5 {
+    color: black;
+}
+
+.slotSelector .slots .day {
+    color: rgba(8, 8, 8, 0.712);
+}
+
+.slotSelector .slots .date {
+    color: rgba(8, 8, 8, 0.479);
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 .slotSelector button {
     background-color: var(--primary-color);
     font-size: 0.8em;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: none;
 }
 
 .slotSelector button:hover {
     background-color: var(--primary-hover-color);
 }
 
-.slotSelector .book .mentor {
-    background-color: white;
-    padding: var(--padding-medium);
-    border-radius: var(--border-radius-small);
-    box-shadow: 0px 3px 3px 0px rgba(27, 27, 27, 0.438);
+.slotSelector .book {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.slotSelector .book button {
+    margin-left: auto;
+    width: min-content;
+}
+
+.slotSelector .book .mentors,
+.slotSelector .book .slots {
+    background-color: var(--background-secondary);
+    padding: 20px;
+    border-radius: var(--border-radius-medium);
 }
 
 .slotSelector .book .mentors ul {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-wrap: wrap;
     gap: 25px;
+    justify-content: space-around;
+    padding: 20px;
 }
 
 .slotSelector .book .mentors .mentor {
-    max-width: 18vw;
+    background-color: white;
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    max-width: 200px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slotSelector .book .mentors .mentor h5 {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.slotSelector .book .mentors .mentor .specialisation {
+    color: var(--text-secondary-color);
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.slotSelector .book .slots {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.slotSelector .book .slots ul {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: baseline;
+    background-color: white;
+    border-radius: var(--border-radius-medium);
+    padding: var(--padding-medium);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.slotSelector .book .slots .slot {
+    background-color: #FFDED1;
+    color: #EC612A;
+    padding: 10px 15px;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 150px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.slotSelector .book .slots .slot:hover {
+    background-color: var(--primary-hover-color);
+    color: white;
+}
+
+
+.slotSelector,
+.slotSelector .book .slots .slot {
+    transition: all 0.3s ease;
+}
+
+.slotSelector .selected,
+.slotSelector .book .slots .slot.selected {
+    background-color: #ea7f0c;
+    color: white;
+    box-shadow: 0px 4px 10px var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.slotSelector .booked {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-secondary);
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slotSelector .booked p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.slotSelector .day {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }

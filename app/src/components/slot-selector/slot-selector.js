@@ -13,6 +13,18 @@ const schedule = {
     Sunday: ["9:00 AM", "10:00 AM", "11:00 AM"],
 };
 
+const getDaysWithDates = () => {
+    const today = new Date();
+    const days = Object.keys(schedule);
+
+    return days.map((day, index) => {
+        const currentDate = new Date(today.getTime() + index * 24 * 60 * 60 * 1000);
+        const dateString = currentDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        const dayIndex = (today.getDay() + index) % 7;
+        return { day: days[dayIndex], date: dateString };
+    });
+};
+
 const SlotSelector = () => {
     const [selectedSlot, setSelectedSlot] = useState(null);
     const [selectedMentor, setSelectedMentor] = useState(null);
@@ -35,7 +47,6 @@ const SlotSelector = () => {
         }
     };
 
-    // Function to render stars based on the rating
     const renderStars = (rating) => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
@@ -49,28 +60,33 @@ const SlotSelector = () => {
         return stars;
     };
 
+    const daysWithDates = getDaysWithDates();
+
     return (
         <div className={slotStyles.slotSelector}>
             {isBooked ? (
                 <div className={slotStyles.booked}>
+                    <h4>Slot Booked</h4>
                     <p><strong>Mentor:</strong> {selectedMentor}</p>
                     <p><strong>Slot:</strong> {selectedSlot}</p>
                 </div>
             ) : (
                 <div className={slotStyles.book}>
-                    <div class={slotStyles.mentors}>
+                    <div className={slotStyles.mentors}>
                         <h4>Choose mentor</h4>
                         <ul>
                             {faculties.map((mentor, index) => (
-                                <div
-                                    key={index}
-                                    className={slotStyles.mentor}
-                                >
+                                <div key={index} className={slotStyles.mentor}>
                                     <Image src={mentor.imageSrc} alt={`${mentor.name}`} width={100} height={100} />
                                     <h5>{mentor.name}</h5>
                                     <p className={slotStyles.specialisation}>{mentor.specialisation} Specialist</p>
                                     <p>{renderStars(mentor.rating)}</p>
-                                    <button onClick={() => handleMentorSelection(mentor.name)}>Select</button>
+                                    <button
+                                        className={selectedMentor === mentor.name ? slotStyles.selected : ''}
+                                        onClick={() => handleMentorSelection(mentor.name)}
+                                    >
+                                        Select
+                                    </button>
                                 </div>
                             ))}
                         </ul>
@@ -78,25 +94,28 @@ const SlotSelector = () => {
 
                     <div className={slotStyles.slots}>
                         <h4>Available slots</h4>
-                        {Object.entries(schedule).map(([day, slots]) => (
-                            <div key={day}>
-                                <h5>{day}</h5>
-                                <div>
-                                    {slots.map((slot) => (
-                                        <div
-                                            key={slot}
-                                            className={`slot ${selectedSlot === `${day} - ${slot}` ? 'selected' : ''}`}
-                                            onClick={() => handleSlotSelection(day, slot)}
-                                        >
-                                            {slot}
-                                        </div>
-                                    ))}
+                        <ul>
+                            {daysWithDates.map(({ day, date }) => (
+                                <div key={day}>
+                                    <h5 className={slotStyles.day}>{day}</h5>
+                                    <h5 className={slotStyles.date}>{date}</h5>
+                                    <div className={slotStyles.day}>
+                                        {schedule[day]?.map((slot) => (
+                                            <button
+                                                key={slot}
+                                                className={`${slotStyles.slot} ${selectedSlot === `${day} - ${slot}` ? slotStyles.selected : ''}`}
+                                                onClick={() => handleSlotSelection(day, slot)}
+                                            >
+                                                {slot}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </ul>
                     </div>
 
-                    <div>
+                    <div className={slotStyles.book}>
                         <button onClick={handleBooking}>Book</button>
                     </div>
                 </div>
