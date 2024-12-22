@@ -79,8 +79,10 @@ const SlotSelector = () => {
                                 <div key={index} className={slotStyles.mentor}>
                                     <Image src={mentor.imageSrc} alt={`${mentor.name}`} width={100} height={100} />
                                     <h5>{mentor.name}</h5>
-                                    <p className={slotStyles.specialisation}>{mentor.specialisation} Specialist</p>
-                                    <p>{renderStars(mentor.rating)}</p>
+                                    <p className={slotStyles.description}>{mentor.specialisation} Specialist <br />
+                                        {mentor.boardPercentage}% 12th board <br />
+                                        {renderStars(mentor.rating)}
+                                    </p>
                                     <button
                                         className={selectedMentor === mentor.name ? slotStyles.selected : ''}
                                         onClick={() => handleMentorSelection(mentor.name)}

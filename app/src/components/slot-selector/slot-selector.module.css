@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    font-size: 1em;
+    font-size: 0.9em;
     gap: 20px;
     color: var(--text-color);
 }
@@ -80,9 +80,16 @@
     padding: var(--padding-medium);
     border-radius: var(--border-radius-medium);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    width: 100%;
     max-width: 200px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: fill;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .slotSelector .book .mentors .mentor h5 {
@@ -90,10 +97,16 @@
     color: var(--text-color);
 }
 
-.slotSelector .book .mentors .mentor .specialisation {
-    color: var(--text-secondary-color);
-    font-size: 0.9em;
+.slotSelector .book .mentors .mentor button {
+    margin: auto;
+    align-self: center;
+}
+
+.slotSelector .book .mentors .mentor .description {
+    color: #828282;
+    font-size: 0.6em;
     margin: 5px 0;
+    margin-top: auto;
 }
 
 .slotSelector .book .slots {
