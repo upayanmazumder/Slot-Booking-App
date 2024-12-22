@@ -3,10 +3,12 @@ import Link from 'next/link';
 import headerStyles from "./header.module.css";
 import { FaBell } from 'react-icons/fa';
 import Image from 'next/image';
+import SignIn from '../auth/signin';
 
 const Header = () => {
     return (
         <header className={headerStyles.header}>
+            <SignIn />
             <ul>
                 <li>
                     <a href="#notifications">

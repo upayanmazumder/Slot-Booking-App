@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 
 import Header from "../components/header/header";
 import Sidebar from "../components/sidebar/sidebar";
@@ -24,10 +25,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
-        <Sidebar />
-        {children}
-        <Footer />
+        <SessionProvider>
+          <Header />
+          <Sidebar />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
