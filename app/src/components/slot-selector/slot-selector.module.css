@@ -41,6 +41,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: none;
+    border: 1px solid transparent;
 }
 
 .slotSelector button:hover {
@@ -152,11 +153,10 @@
     transition: all 0.3s ease;
 }
 
-.slotSelector .selected,
-.slotSelector .book .slots .slot.selected {
+.slotSelector button.selected {
     background-color: #ea7f0c;
     color: white;
-    box-shadow: 0px 0 10px 5 rgb(197, 197, 197);
+    box-shadow: 0px 0 5px 6 rgb(197, 197, 197);
     border: rgb(255, 179, 0) 3px solid;
     transform: scale(1.05);
 }
