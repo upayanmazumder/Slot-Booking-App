@@ -8,7 +8,7 @@ export default function SignIn() {
 
     if (session) {
         return (
-            <div>
+            <div class="container container-center">
                 <Image src={session.user.image} alt="Profile Picture" width={50} height={50} />
                 <button onClick={() => signOut()}>Sign out</button>
             </div>
@@ -16,7 +16,7 @@ export default function SignIn() {
     }
 
     return (
-        <div>
+        <div class="container container-center">
             <button onClick={() => signIn("google")}>Signin with Google</button>
         </div>
     );

@@ -193,7 +193,7 @@ button {
   font-weight: 600;
   text-transform: uppercase;
   color: #ffffff;
-  background-color: #171717a2;
+  background-color: var(--primary-color);
   border: none;
   border-radius: var(--border-radius-tiny);
   cursor: pointer;
@@ -227,7 +227,7 @@ button:active {
   box-shadow: 0 2px 0 -2px var(--secondary-color),
     0 8px 0 -4px #39a2db,
     0 12px 10px -3px #39a2db;
-  background-color: #1c1c2a;
+  background-color: var(--primary-hover-color-color);
 }
 
 @media (max-width: 768px) {
