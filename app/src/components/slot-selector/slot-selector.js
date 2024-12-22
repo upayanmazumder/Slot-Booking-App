@@ -108,8 +108,8 @@ const SlotSelector = () => {
                         </ul>
                     </div>
 
-                    <div className={slotStyles.book}>
-                        <button onClick={handleBooking}>Book</button>
+                    <div className={slotStyles.submit}>
+                        <button onClick={handleBooking} disabled={!selectedMentor || !selectedSlot}>Book</button>
                     </div>
                 </div>
             )}

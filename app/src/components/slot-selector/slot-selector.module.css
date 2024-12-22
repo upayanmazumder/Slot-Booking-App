@@ -147,7 +147,6 @@
     color: white;
 }
 
-
 .slotSelector,
 .slotSelector .book .slots .slot {
     transition: all 0.3s ease;
@@ -178,4 +177,22 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+}
+
+.slotSelector .submit {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.slotSelector .submit button {
+    width: 100%;
+    max-width: 200px;
+}
+
+.slotSelector .submit button:disabled {
+    background-color: #ebccab;
+    cursor: not-allowed;
 }
