@@ -2,16 +2,7 @@ import React, { useState } from 'react';
 import faculties from '../../data/mentors.json';
 import slotStyles from "./slot-selector.module.css";
 import Image from 'next/image';
-
-const schedule = {
-    Monday: ["8:00 AM", "8:30 AM", "9:00 AM", "10 AM", "10:30 AM", "11:00 AM"],
-    Tuesday: ["9:00 AM", "9:30 AM"],
-    Wednesday: ["10:00 AM"],
-    Thursday: ["9:00 AM"],
-    Friday: ["8:30 AM", "10:00 AM"],
-    Saturday: ["11:00 AM"],
-    Sunday: ["9:00 AM", "10:00 AM", "11:00 AM"],
-};
+import schedule from "../../data/schedule.json";
 
 const getDaysWithDates = () => {
     const today = new Date();
