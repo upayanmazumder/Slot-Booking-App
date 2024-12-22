@@ -143,7 +143,7 @@
 .slotSelector .book .slots .slot.selected {
     background-color: #ea7f0c;
     color: white;
-    box-shadow: 0px 4px 10px var(--secondary-color);
+    box-shadow: 0px 0 10px 5 rgb(244, 163, 0);
     transform: scale(1.05);
 }
 

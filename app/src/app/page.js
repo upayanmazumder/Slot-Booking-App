@@ -11,3 +11,8 @@ export default function Home() {
     </div>
   );
 }
+
+export const metadata = {
+  title: "Slot Booking App - Home",
+  description: "A simple slot booking app",
+};
