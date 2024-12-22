@@ -39,7 +39,7 @@
     border: none;
     border-radius: var(--border-radius-small);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     box-shadow: none;
 }
 
@@ -157,6 +157,7 @@
     background-color: #ea7f0c;
     color: white;
     box-shadow: 0px 0 10px 5 rgb(197, 197, 197);
+    border: rgb(255, 179, 0) 3px solid;
     transform: scale(1.05);
 }
 
