@@ -9,7 +9,7 @@ export default function SignIn() {
     if (session) {
         return (
             <div>
-                <Image src={session.user.image} alt="Profile Picture" width={50} height={50} />
+                <Image src={session.user.image} alt="Profile Picture" width={50} height={50} /> <p>{session.user.name}</p>
                 <button onClick={() => signOut()}>Sign out</button>
             </div>
         );
@@ -17,6 +17,7 @@ export default function SignIn() {
 
     return (
         <div>
+            You are not logged in!
             <button onClick={() => signIn("google")}>Signin with Google</button>
         </div>
     );

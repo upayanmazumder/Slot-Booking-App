@@ -3,12 +3,11 @@ import Link from 'next/link';
 import headerStyles from "./header.module.css";
 import { FaBell } from 'react-icons/fa';
 import Image from 'next/image';
-import SignIn from '../auth/signin';
+import Auth from '../auth/auth';
 
 const Header = () => {
     return (
         <header className={headerStyles.header}>
-            <SignIn />
             <ul>
                 <li>
                     <a href="#notifications">
@@ -16,9 +15,7 @@ const Header = () => {
                     </a>
                 </li>
                 <li>
-                    <a href="#profile">
-                        <Image src="/media/unknown-person.svg" alt="User" width={50} height={50} />
-                    </a>
+                    <Auth />
                 </li>
             </ul>
         </header>
