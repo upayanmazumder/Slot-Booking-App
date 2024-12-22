@@ -1,16 +1,24 @@
 import React from 'react';
+import Link from 'next/link';
+import headerStyles from "./header.module.css";
+import { FaBell } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Header = () => {
     return (
-        <header className="header">
-            <h1>Slot Booking App</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
+        <header className={headerStyles.header}>
+            <ul>
+                <li>
+                    <a href="#notifications">
+                        <FaBell />
+                    </a>
+                </li>
+                <li>
+                    <a href="#profile">
+                        <Image src="/media/unknown-person.svg" alt="User" width={50} height={50} />
+                    </a>
+                </li>
+            </ul>
         </header>
     );
 };

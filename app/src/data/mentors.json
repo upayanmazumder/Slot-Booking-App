@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Kunal Rai",
+        "rating": 3,
+        "imageSrc": "/media/mentors/kunal_rai.svg",
+        "specialisation": "Mathematics",
+        "boardPercentage": 98
+    },
+    {
+        "name": "Joshva Devdas T",
+        "rating": 3,
+        "imageSrc": "/media/mentors/joshva_devdas.svg",
+        "specialisation": "Mathematics",
+        "boardPercentage": 98
+    },
+    {
+        "name": "Lavanya K",
+        "rating": 3,
+        "imageSrc": "/media/mentors/lavanya_k.svg",
+        "specialisation": "Biology",
+        "boardPercentage": 97.6
+    },
+    {
+        "name": "Padma Priya R",
+        "rating": 3,
+        "imageSrc": "/media/mentors/padma_priya_r.svg",
+        "specialisation": "Mathematics",
+        "boardPercentage": 98.32
+    }
+]

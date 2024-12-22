@@ -1,9 +1,10 @@
 import React from 'react';
+import footerStyles from "./footer.module.css";
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            <p>&copy; 2024 Slot Booking App. All rights reserved.</p>
+        <footer className={footerStyles.footer}>
+            <p>Slot Booking App</p>
         </footer>
     );
 };
