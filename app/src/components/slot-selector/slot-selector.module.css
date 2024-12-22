@@ -1,0 +1,40 @@
+.slotSelector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+.slotSelector h4 {
+    margin: 15px 0;
+}
+
+.slotSelector button {
+    background-color: var(--primary-color);
+    font-size: 0.8em;
+}
+
+.slotSelector button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.slotSelector .book .mentor {
+    background-color: white;
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius-small);
+    box-shadow: 0px 3px 3px 0px rgba(27, 27, 27, 0.438);
+}
+
+.slotSelector .book .mentors ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 25px;
+}
+
+.slotSelector .book .mentors .mentor {
+    max-width: 18vw;
+    text-align: center;
+}

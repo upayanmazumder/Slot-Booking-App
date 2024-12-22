@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import faculties from '../../data/mentors.json';
+import slotStyles from "./slot-selector.module.css";
+import Image from 'next/image';
 
 const schedule = {
     Monday: ["8:00 AM", "8:30 AM", "9:00 AM", "10 AM", "10:30 AM", "11:00 AM"],
@@ -33,41 +35,53 @@ const SlotSelector = () => {
         }
     };
 
+    // Function to render stars based on the rating
+    const renderStars = (rating) => {
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+            const src = i <= rating ? '/media/star/orange.svg' : '/media/star/gray.svg';
+            stars.push(
+                <span key={i}>
+                    <Image src={src} alt="star" width={20} height={20} />
+                </span>
+            );
+        }
+        return stars;
+    };
+
     return (
-        <div className="slot-selector">
+        <div className={slotStyles.slotSelector}>
             {isBooked ? (
-                <div className="booking-summary">
-                    <h1>Booking Confirmed</h1>
+                <div className={slotStyles.booked}>
                     <p><strong>Mentor:</strong> {selectedMentor}</p>
                     <p><strong>Slot:</strong> {selectedSlot}</p>
                 </div>
             ) : (
-                <>
-                    <h1>Slot and Mentor Selector</h1>
-                    <div className="mentors">
-                        <h2>Choose a Mentor</h2>
-                        <div className="mentors-container">
+                <div className={slotStyles.book}>
+                    <div class={slotStyles.mentors}>
+                        <h4>Choose mentor</h4>
+                        <ul>
                             {faculties.map((mentor, index) => (
                                 <div
                                     key={index}
-                                    className={`mentor ${selectedMentor === mentor.name ? 'selected' : ''}`}
-                                    onClick={() => handleMentorSelection(mentor.name)}
+                                    className={slotStyles.mentor}
                                 >
-                                    <img src={mentor.imageSrc} alt={`${mentor.name}`} />
-                                    <h3>{mentor.name}</h3>
-                                    <p><strong>Specialist In:</strong> {mentor.specialisation}</p>
-                                    <p><strong>Rating:</strong> {mentor.rating} / 5</p>
+                                    <Image src={mentor.imageSrc} alt={`${mentor.name}`} width={100} height={100} />
+                                    <h5>{mentor.name}</h5>
+                                    <p className={slotStyles.specialisation}>{mentor.specialisation} Specialist</p>
+                                    <p>{renderStars(mentor.rating)}</p>
+                                    <button onClick={() => handleMentorSelection(mentor.name)}>Select</button>
                                 </div>
                             ))}
-                        </div>
+                        </ul>
                     </div>
 
-                    <div className="schedule">
-                        <h2>Choose a Slot</h2>
+                    <div className={slotStyles.slots}>
+                        <h4>Available slots</h4>
                         {Object.entries(schedule).map(([day, slots]) => (
-                            <div key={day} className="day-schedule">
-                                <h3>{day}</h3>
-                                <div className="slots-container">
+                            <div key={day}>
+                                <h5>{day}</h5>
+                                <div>
                                     {slots.map((slot) => (
                                         <div
                                             key={slot}
@@ -82,22 +96,10 @@ const SlotSelector = () => {
                         ))}
                     </div>
 
-                    <div className="summary">
-                        <h2>Selected Slot and Mentor</h2>
-                        {selectedMentor || selectedSlot ? (
-                            <div>
-                                {selectedMentor && <p><strong>Mentor:</strong> {selectedMentor}</p>}
-                                {selectedSlot && <p><strong>Slot:</strong> {selectedSlot}</p>}
-                            </div>
-                        ) : (
-                            <p>No slot or mentor selected</p>
-                        )}
-                    </div>
-
-                    <div className="booking">
+                    <div>
                         <button onClick={handleBooking}>Book</button>
                     </div>
-                </>
+                </div>
             )}
         </div>
     );

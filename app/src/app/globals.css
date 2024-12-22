@@ -6,7 +6,7 @@
 }
 
 :root {
-  --background: white;
+  --background: #f4f4f4;
 
   --header-background-color: white;
   --header-color: white;
@@ -16,9 +16,9 @@
 
   --card-background-color: rgba(104, 104, 104, 0.202);
 
-  --primary-color: #1356ad;
-  --primary-hover-color: #17a2e0;
-  --secondary-color: #f85959;
+  --primary-color: #ec612a;
+  --primary-hover-color: #ef8a62;
+  --secondary-color: #9746ff;
 
   --link-text-color: var(--theme-color);
   --link-text-hover-color: #2665b8;
@@ -50,11 +50,8 @@ body {
   padding: 0;
   margin: 0;
   line-height: inherit;
-  background-size: cover;
-  background-attachment: fixed;
   position: relative;
   z-index: 0;
-  background-position: center center;
   font-family: 'RedHatDisplay', sans-serif;
 }
 
@@ -85,7 +82,6 @@ body::before {
 h1,
 h2,
 h3 {
-  color: white;
   margin: 0;
 }
 
