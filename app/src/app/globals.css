@@ -253,5 +253,10 @@ button:focus-visible {
 
 /* SCROLLBAR STYLES ----------------------------- */
 ::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+  background-color: rgb(84, 84, 84);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
 }
